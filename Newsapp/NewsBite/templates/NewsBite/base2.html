@@ -7,12 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="{% static 'NewsBite/bootstrap.min.css' %}">
-
-
   <link href="{% static 'NewsBite/bootstrap/three/css/bootstrap.min.css' %}" rel="stylesheet">
-
-
-<link href="{% static 'NewsBite/bootstrap/four/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'NewsBite/bootstrap/four/css/bootstrap.min.css' %}" rel="stylesheet">
 
   <style type="text/css">
     #bg{
@@ -20,6 +16,22 @@
     background-position: center;
     background-size: 100%;
   }
+  
+  .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #fcf66a;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+        .btn:hover {
+      background-color: #ffd700; /* Change to desired hover color */
+    }
   </style>
 </head>
 <body>
@@ -27,7 +39,7 @@
 
 
 
-  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #184a45; color: white">
+  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgba(152, 152, 152, 0.5); color: white">
   <a class="navbar-brand" href="#"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -35,23 +47,24 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-  <a class="nav-link" href="{% url 'index' %}" style="color: #fcf66a ; font-size: 20px; font-weight: bold;">TravelSosh <br><span class="sr-only">(current)</span></a>
+  <a class="nav-link" href="{% url 'index' %}" style="color: #000000 ; font-size: 30px; font-weight: bold;">TravelSosh <br><span class="sr-only">(current)</span></a>
  
- <a style="font-weight: bold">Travellers Network</a>
       </li>
     </ul>
     <span class="navbar-text">
     </span>
 
-  <a class="nav-link" href="{% url 'register' %}" style="color: #fcf66a; font-size: 20px; font-weight: bold;">Register<span class="sr-only"></span></a>
+    <a class="nav-link btn" style="font-weight: bold; border: 2px solid #05102e;margin-right: 10px;" href="{% url 'register' %}">Register<span class="sr-only">(current)</span></a>
 
-  <a class="nav-link" href="{% url 'index' %}" style="color: #fcf66a; font-size: 20px; font-weight: bold;">Login<span class="sr-only"></span></a>
+    <a class="nav-link btn" style="font-weight: bold; border: 2px solid #05102e;margin-right: 10px;" href="{% url 'index' %}">Login<span class="sr-only">(current)</span></a>
+
+
 
 
   </div>
 </nav>
 
-<body id="bg" style="background-image: url('{% static "NewsBite/images/background.jpg" %}');">
+<body id="bg" style="background-image: url('https://images.unsplash.com/photo-1517061493161-6f312d1c36d0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTExfHxuZXdzfGVufDB8fDB8fHww'); background-size: cover; background-position: center; background-attachment: fixed;">
 
 
 
@@ -61,19 +74,6 @@
 {% endblock %}
 
 
-
-<style>
-#footer{
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   height: 60px;
-   width: 100%;
-   background-color: #184a45;
-   color: #fcf66a;
-   text-align: center;
-}
-</style>
 
 <div class="fixed-bottom" id="footer">
 </div>
