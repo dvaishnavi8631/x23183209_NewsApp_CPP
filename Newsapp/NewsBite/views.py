@@ -18,6 +18,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import auth
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import get_object_or_404
+from news_dashboard.news_api import NewsAPI
 import itertools
 
 #Verifying input function
@@ -82,24 +83,50 @@ def dashboard(request):                                                         
 	print(request.user)
 	return render(request, 'NewsBite/dashboard.html')
 
-#feed function
-def feed(request):																#feed definition
-	try:
-		post_all = Post.objects.all().order_by('created_at')
-		print(post_all)
-	except Exception as e:
-		print(e)
+# feed function
+# def feed(request):																#feed definition
+# 	try:
+# 		post_all = Post.objects.all().order_by('created_at')
+# 		print(post_all)
+# 	except Exception as e:
+# 		print(e)
 
-	comment_form = CreateComment()
-	username = request.user.username
+# 	comment_form = CreateComment()
+# 	username = request.user.username
 
-	context = {
-	'post_all': post_all,
-	'comment_form': comment_form,
-	'username': username,
-	}
+# 	context = {
+# 	'post_all': post_all,
+# 	'comment_form': comment_form,
+# 	'username': username,
+# 	}
 
-	return render(request, 'NewsBite/feed.html', context)
+# 	return render(request, 'NewsBite/feed.html', context)
+
+def feed(request):
+    try:
+        # Initialize NewsAPI object with your API key
+        news_api = NewsAPI(api_key='b52eb77ce6764314a4d14eeee7f0255b')
+
+        # Get top headlines (example: top business news in the US)
+        articles = news_api.get_top_headlines(country='us', category='business')
+
+    except Exception as e:
+        # Handle errors gracefully
+        print("Error fetching news:", e)
+        articles = []  # Empty list if there's an error
+
+    post_all = Post.objects.all().order_by('created_at')
+    comment_form = CreateComment()
+    username = request.user.username
+
+    context = {
+        'post_all': post_all,
+        'comment_form': comment_form,
+        'username': username,
+        'news_articles': articles  # Pass the news articles to the template context
+    }
+
+    return render(request, 'NewsBite/feed.html', context)
 
 
 #following functionality
