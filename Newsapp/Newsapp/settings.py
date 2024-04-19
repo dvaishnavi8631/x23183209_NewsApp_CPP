@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import boto3
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,6 +30,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['3c20b8abc69648fcaed9dca88eadff57.vfs.cloud9.eu-west-1.amazonaws.com']
 
+# Set AWS credentials (alternatively, use environment variables)
+# AWS_ACCESS_KEY_ID = 'your_access_key_id'
+# AWS_SECRET_ACCESS_KEY = 'your_secret_access_key'
 
 # Application definition
 
@@ -116,15 +120,21 @@ USE_I18N = True
 
 USE_TZ = True
 
+# # Custom storage backend for static files
+# class StaticStorage(S3Boto3Storage):
+#     location = 'static'
+#     default_acl = 'public-read'  # optional, set the access permissions
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'Travel2gether/static'),]
-#LOGIN_REDIRECT_URL = 'welcome'
-#LOGIN_URL = 'login'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'NewsBite/static'),]
+
+# STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
+# #LOGIN_REDIRECT_URL = 'welcome'
+# #LOGIN_URL = 'login'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -135,5 +145,17 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+# AWS_ACCESS_KEY_ID = 'your-access-key-id'
+# AWS_SECRET_ACCESS_KEY = 'your-secret-access-key'
+AWS_STORAGE_BUCKET_NAME = 'x23183209-cpp-newsbite'
+AWS_S3_REGION_NAME = 'eu-north-1'  # e.g., 'us-east-1'
+
+# Tell Django to use S3 to store static files.
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# Tell Django to use S3 to store uploaded media files.
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
