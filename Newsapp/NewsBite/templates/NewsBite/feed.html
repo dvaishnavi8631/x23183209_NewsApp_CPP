@@ -26,13 +26,14 @@
         {% endif %}
 
         <!-- Display news articles -->
-        <h2>Top Business News</h2>
-        {% if news_articles %}
-            <div class="container">
-                <div class="row">
+        <div class="container">
+            <h2 class="text-center" style="color: #800000; font-weight: bold;">Top Business News</h2>
+            <hr class="border-bottom" style="border-color: black;"> <!-- Visible black line after the heading -->
+            <div class="row">
+                {% if news_articles %}
                     {% for article in news_articles %}
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm h-100">
                                 <img src="{{ article.urlToImage }}" class="card-img-top" alt="News Image">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ article.title }}</h5>
@@ -42,33 +43,34 @@
                             </div>
                         </div>
                     {% endfor %}
-                </div>
+                {% else %}
+                    <p class="col-md-12 text-center">No news articles available at the moment.</p>
+                {% endif %}
             </div>
-        {% else %}
-            <p>No news articles available at the moment.</p>
-        {% endif %}
+        </div>
 
         <!-- Display existing posts -->
-        <h2>Your Posts</h2>
-        {% if post_all %}
-            <div class="container">
-                <div class="row">
+        <div class="container">
+            <h2 class="text-center" style="color: #800000; font-weight: bold;">Your Posts</h2>
+            <hr class="border-bottom" style="border-color: black;"> <!-- Visible black line after the heading -->
+            <div class="row">
+                {% if post_all %}
                     {% for post in post_all %}
                         {% for x in user.following_set.all %}
                             {% if post.user.username == x.following_user %}
-                                <div class="col-md-6">
-                                    <div class="card mb-4 shadow-sm">
+                                <div class="col-md-6 mb-4">
+                                    <div class="card shadow-sm h-100">
                                         <!-- Existing post content -->
                                     </div>
                                 </div>
                             {% endif %}
                         {% endfor %}
                     {% endfor %}
-                </div>
+                {% else %}
+                    <p class="col-md-12 text-center">No posts available at the moment.</p>
+                {% endif %}
             </div>
-        {% else %}
-            <p>No posts available at the moment.</p>
-        {% endif %}
+        </div>
     </div>
 </div>
 

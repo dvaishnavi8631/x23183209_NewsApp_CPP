@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>TravelSosh</title>
+  <title>NewsBite</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  
@@ -26,8 +26,8 @@
 <body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #184A45FF;color: #FCF66AFF">
-        <a class="navbar-brand" href="{% url 'welcome' %}" style="color: #FCF66AFF">TravelSosh</a>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #a9a9a9 ; color: white">
+        <a class="navbar-brand" href="{% url 'welcome' %}" style="color: #000000 ; font-size: 30px; font-weight: bold;">NewsBite</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,13 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'welcome' %}" style="color: #FCF66AFF">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'welcome' %}" style="color: #800000; font-weight: bold;">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'welcome' %}" style="color: #FCF66AFF">Profile</a>
+              <a class="nav-link" href="{% url 'welcome' %}" style="color: #800000; font-weight: bold;">My Profile</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'feed' %}" style="color: #FCF66AFF">Feeds</a>
+                <a class="nav-link" href="{% url 'feed' %}" style="color: #800000; font-weight: bold;">News Feeds</a>
               </li>
 
               <li class="nav-item">
@@ -54,15 +54,18 @@
             </li>
           </ul>
       
-       <form action="{% url 'search' %}" class="d-flex" method="GET" style="align-content: right;">
-                    <input name="q" class="form-control me-2" type="search" placeholder="FInd A Friend Here" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" style="color: #184A45FF; background-color: #FCF66AFF;">Search</button>
-                  </form>
+                   <form action="{% url 'search' %}" class="d-flex justify-content-end" method="GET">
+                    <div class="form-group mb-0 mr-2">
+                        <input name="q" class="form-control" type="search" placeholder="Find A Friend Here" aria-label="Search">
+                    </div>
+                    <button class="btn btn-outline-success" type="submit" style="background-color: #177245; color: #000000; font-weight: bold;">Search</button>
+                </form>
+
 
                   <ul class="navbar-nav ml-auto ml-md-0">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{%  url 'logout' %}" style="color: #FCF66AFF">Logout</a>
+                        <a class="nav-link" href="{%  url 'logout' %}" style="color: #800000;font-weight: bold;">Logout</a>
                       </li>
 
                 </ul>
