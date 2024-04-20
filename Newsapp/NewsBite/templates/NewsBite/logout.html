@@ -1,81 +1,45 @@
-{%extends 'NewsBite/base2.html'%}
+{% extends 'NewsBite/base2.html' %}
 {% block body %}
-
 
 {% load static %}
 
-  <style type="text/css">
-    #bg{
+<style type="text/css">
+  #bg {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
   }
-  </style>
-
+</style>
 
 <link rel="stylesheet" type="text/css" href="{% static 'NewsBite/bootstrap.min.css' %}">
 
-
-    <div class="container-fluid" style="padding-top: 110px">
-    	<div class="row">
-    		
-
-    		<div class="col-sm-4">
-    			
-    		</div>
+<div class="container" style="padding-top: 110px;">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
 
 
-
-
-
-    		<div class="col-sm-3">
-
-
-    			 <div class="page">
-      <div class="page-single">
-        <div class="container">
-          <div class="row">
-            <div class="col col-login mx-auto">
-              <div class="text-center mb-6">
-                <img src="./assets/brand/tabler.svg" class="h-6" alt="">
+            <div class="card" style="background-image: url('https://images.unsplash.com/photo-1497008386681-a7941f08011e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG5ld3NwYXBlcnxlbnwwfHwwfHx8MA%3D%3D.jpg'); background-size: cover;">
+              <div class="card-header" style="color: #ffffff;">
+                <div class="card-title text-center" style="color: white;font-weight: bold;">You have been logged out</div>
               </div>
-              <div class="card" style="background-color: #184a45">
-                <div class="card-body p-6">
-                  <div class="card-title text-center" style="color: white">You have been logged out</div>
-                  <br><br><br>
-                 <div class="text-center text-muted">
-                <a href="{% url 'index' %}" style="color: #fcf66a">Click Here Login </a>
-              </div> 
-                
-                
+              <div class="card-body p-5">
+                <div class="text-center text-muted">
+                  <a href="{% url 'index' %}" style="color: #fcf66a">Click Here to Login</a>
                 </div>
               </div>
-              
             </div>
           </div>
         </div>
       </div>
     </div>
-                      
- 
-   
-        </div>
-
-
-    			
+  </div>
+</div>
 
 
 
-
-
-
-    		<div class="col-sm-4">
-    			
-    		</div>
-    	</div>
-
-
+    <div class="col-sm-4">
     </div>
+  </div>
+</div>
 
-
-{% endblock %}    
+{% endblock %}

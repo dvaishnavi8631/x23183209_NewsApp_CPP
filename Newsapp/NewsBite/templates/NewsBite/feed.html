@@ -49,29 +49,66 @@
             </div>
         </div>
 
-        <!-- Display existing posts -->
-        <div class="container">
-            <h2 class="text-center" style="color: #800000; font-weight: bold;">Your Posts</h2>
-            <hr class="border-bottom" style="border-color: black;"> <!-- Visible black line after the heading -->
-            <div class="row">
-                {% if post_all %}
-                    {% for post in post_all %}
-                        {% for x in user.following_set.all %}
-                            {% if post.user.username == x.following_user %}
-                                <div class="col-md-6 mb-4">
-                                    <div class="card shadow-sm h-100">
-                                        <!-- Existing post content -->
+<!-- Display existing posts -->
+<div class="container">
+    <h2 class="text-center" style="color: #800000; font-weight: bold;">Your Posts</h2>
+    <hr class="border-bottom" style="border-color: black;"> <!-- Visible black line after the heading -->
+    <div class="row">
+        {% if post_all %}
+            {% for post in post_all %}
+                {% for x in user.following_set.all %}
+                    {% if post.user.username == x.following_user %}
+                        <div class="col-md-6 mb-4">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="media">
+                                        <div class="media-object avatar avatar-md mr-4" style="background-image: url({{ post.user.profile.profile_photo.url }})"></div>
+                                        <div class="media-body">
+                                            <div class="media-heading">
+                                                <small class="float-right text-muted">{{ post.created_at }}</small>
+                                                <h5>{{ post.user.username }}</h5>
+                                            </div>
+                                            <div class="media-body">
+                                                {{ post.post_text }}
+                                            </div>
+                                            <div>
+                                                <img src="{{ post.post_picture.url }}" style="max-width: 500px">
+                                            </div>
+                                            <ul class="media-list">
+                                                {% for comment in post.comment_set.all %}
+                                                    <li class="media mt-4">
+                                                        <div class="media-object avatar mr-4" style="background-image: url({{ comment.user.profile.profile_photo.url }})"></div>
+                                                        <div class="media-body">
+                                                            <strong>{{ comment.user.username }}: </strong>
+                                                            {{ comment.comment_text }}
+                                                        </div>
+                                                    </li>
+                                                {% endfor %}
+                                                <li class="media mt-4">
+                                                    <div class="media-object avatar mr-4" style="background-image: url({{ user.profile.profile_photo.url }})"></div>
+                                                    <div class="media-body">
+                                                        <strong>{{ user.username }}: </strong>
+                                                        <form action="{% url 'commentweb' post.user.username post.pk %}" method="POST">
+                                                            {% csrf_token %}
+                                                            {{ comment_form|crispy }}
+                                                            <button type="submit" class="btn btn-primary">Post</button>
+                                                        </form>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            {% endif %}
-                        {% endfor %}
-                    {% endfor %}
-                {% else %}
-                    <p class="col-md-12 text-center">No posts available at the moment.</p>
-                {% endif %}
-            </div>
-        </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% else %}
+            <p class="col-md-12 text-center">No posts available at the moment.</p>
+        {% endif %}
     </div>
 </div>
+
 
 {% endblock %}
