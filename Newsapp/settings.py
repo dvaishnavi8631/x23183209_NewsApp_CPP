@@ -147,15 +147,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-# AWS_ACCESS_KEY_ID = 'your-access-key-id'
-# AWS_SECRET_ACCESS_KEY = 'your-secret-access-key'
-AWS_STORAGE_BUCKET_NAME = 'x23183209-cpp-newsbite'
-AWS_S3_REGION_NAME = 'eu-north-1'  # e.g., 'us-east-1'
+# # AWS_ACCESS_KEY_ID = 'your-access-key-id'
+# # AWS_SECRET_ACCESS_KEY = 'your-secret-access-key'
+# AWS_STORAGE_BUCKET_NAME = 'x23183209-cpp-newsbite'
+# AWS_S3_REGION_NAME = 'eu-north-1'  # e.g., 'us-east-1'
 
-# Tell Django to use S3 to store static files.
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# # Tell Django to use S3 to store static files.
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# Tell Django to use S3 to store uploaded media files.
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# # Tell Django to use S3 to store uploaded media files.
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
