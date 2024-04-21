@@ -1,0 +1,20 @@
+version: 0.2
+ 
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - pip install --upgrade pip
+      # Install dependencies needed for running the static analysis
+      - pip install -r requirements.txt pylint
+  pre_build:
+    commands:
+      - python --version
+      # Run pylint with --disable=C flag to disable all formatting checks
+      # Then selectively enable other checks as needed
+      - pylint --disable=C,R $CODEBUILD_SRC_DIR/*.py
+      - pylint --disable=C,R $CODEBUILD_SRC_DIR/news_app/*.py
+artifacts:
+  files:
+    - '**/*'
