@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-r3km987m3r&#0qs7di!bemov&9=j1bpt&-^0#49z5132_20q_6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3c20b8abc69648fcaed9dca88eadff57.vfs.cloud9.eu-west-1.amazonaws.com']
+ALLOWED_HOSTS = ['*']
 
 # Set AWS credentials (alternatively, use environment variables)
 # AWS_ACCESS_KEY_ID = 'your_access_key_id'
