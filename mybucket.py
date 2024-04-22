@@ -114,7 +114,7 @@ def main():
     # parser.add_argument('--file_name', help='The name of the file to upload.')
     # parser.add_argument('--object_key', help='The object key')
 
-    region = 'us-east-1'
+    # region = 'us-east-1'
   
     args = parser.parse_args()
     create_bucket(args.bucket_name, region=args.region)
@@ -126,4 +126,4 @@ def main():
  
 
 if __name__ == '__main__':
- main()
+    main()
