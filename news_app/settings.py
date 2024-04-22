@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-import boto3
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -158,5 +157,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # # Tell Django to use S3 to store uploaded media files.
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
