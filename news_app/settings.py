@@ -144,3 +144,15 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# settings.py
+# AWS_ACCESS_KEY_ID = 'yASIATUYJP7SUDUZOXHOQ'
+# AWS_SECRET_ACCESS_KEY = 'CqXFytTN5we313gKcw0E/JkLEiBct4haH7REY01R'
+# AWS_STORAGE_BUCKET_NAME = 'x23183209-cpp-newsbite'
+
+# # For media files
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# MEDIA_URL = 'https://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+
+# # For static files
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_URL = 'https://%s.s3.amazonaws.com/static/' % AWS_STORAGE_BUCKET_NAME
